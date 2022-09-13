@@ -1,0 +1,63 @@
+<h1>{{empleado.nombre}}</h1>
+<ul>
+    {% for fotos in empleado.foto_set.all %}
+        <li><img {{fotos.foto}} alt="10px"></li>
+        <br>
+        <a href="/admin/manejo_empleados/foto/{{empleado.id}}/change/"><input type="button" value="Actualizar foto"></a>
+    {% endfor %}
+    <br>
+    <legend>Datos del empleado</legend>
+    {% for dato in empleado.dato_set.all %}
+        <br>
+        <li>{{dato.nombre}}</li>
+        <li>{{dato.apellido}}</li>
+        <li>{{dato.tipo_documento}}</li>
+        <li>{{dato.numero_documento}}</li>
+        <li>{{dato.correo}}</li>
+        <li>{{dato.telefono}}</li>
+        <li>{{dato.tipo_sangre}}</li>
+        <br>
+        <a href="/admin/manejo_empleados/dato/{{empleado.id}}/change/"><input type="button" value="Actualizar datos"></a>
+    {% endfor %}
+    <br>
+    <legend>Estudios del empleado</legend>
+    {% for estudio in empleado.estudio_set.all %}
+    <br>
+    <li>{{estudio.año_est}}</li>
+    <li>{{estudio.mes_est}}</li>
+    <li>{{estudio.estudio}}</li>
+    <li>{{estudio.institucion}}</li>
+    <li>{{estudio.titulo}}</li>
+    <br>
+    <a href="/admin/manejo_empleados/estudio/{{estudio.id}}/change/"><input type="button" value="Actualizar estudios"></a>
+    <br>
+    {% endfor %}
+    <br>
+    <legend>Experiencia laboral</legend>
+    {% for experiencia in empleado.experiencia_set.all %}
+        <br>
+        <li>{{experiencia.año_lab}}</li>
+        <li>{{experiencia.mes_lab}}</li>
+        <li>{{experiencia.empresa}}</li>
+        <li>{{experiencia.jefe_inmediato}}</li>
+        <li>{{experiencia.cargo}}</li>
+        <li>{{experiencia.responsabilidades}}</li>
+        <li>{{experiencia.logros}}</li>
+        <br>
+        <a href="/admin/manejo_empleados/experiencia/{{experiencia.id}}/change/"><input type="button" value="Actualizar experiencia"></a>
+        <br>
+    {% endfor %}
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <a href="/admin/manejo_empleados/foto/add/"><input type="button" value="Insertar foto"></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <a href="/admin/manejo_empleados/dato/add/"><input type="button" value="Insertar datos"></a>
+    <br>
+    <br>
+    <a href="/admin/manejo_empleados/estudio/add/"><input type="button" value="Crear nuevo estudio"></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/admin/manejo_empleados/experiencia/add/"><input type="button" value="Crear nueva experiencia laboral"></a>
+</ul>

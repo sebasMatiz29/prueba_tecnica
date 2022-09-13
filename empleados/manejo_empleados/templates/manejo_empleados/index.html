@@ -1,0 +1,51 @@
+{% if latest_question_list %}
+    <h1>Empleados</h1>
+   <ul>
+    {% for empleado in latest_question_list %}
+        <li>{{empleado.nombre}}</li>
+        <a href="/admin/manejo_empleados/empleado/{{empleado.id}}/delete/"><input type="button" value="Eliminar empleado"></a>
+        <a href="/detail/{{empleado.id}}"><input type="button" value="Visualizar empleado"></a>
+    {% endfor %}  
+   </ul>
+   <a href="/admin/manejo_empleados/empleado/add/"><input type="button" value="Crear empleado"></a>
+{% else %}
+   <p>No hay empleados en el sistema.</p>
+{% endif %}
+
+
+
+
+
+{% comment %} <form action="{% url 'polls:vote' empleado.id %}" method="get">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{empleado.nombre}}</h1></legend>
+        {% for nombre in latest_question_list %} 
+            <label for="nombre{{ forloop.counter }}">
+                {{empleado.nombre}}
+            </label>
+            <input 
+                type="submit"
+                name="dato"
+                value = "Ver Datos"
+            >
+            <input 
+                type="submit"
+                name="foto"
+                value = "Ver foto"
+            >
+            <input 
+                type="submit"
+                name="foto"
+                value = "Ver estudios"
+            >
+            <input 
+                type="submit"
+                name="foto"
+                value = "Ver experiencia"
+            >
+            <br>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="Votar">
+    </form> {% endcomment %}
